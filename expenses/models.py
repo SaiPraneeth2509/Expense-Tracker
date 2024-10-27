@@ -9,3 +9,7 @@ class Expense(models.Model):
 
     def __str__(self) -> str:
         return f"{self.title}-{self.amount}"
+
+class Tag(models.Model):
+    name = models.CharField(max_length=50)
+    expense = models.ForeignKey(Expense, on_delete=models.CASCADE, related_name='tags')
